@@ -22,6 +22,15 @@
 		$cell = $_POST['cell'];
 		$user =  $_POST['user'];
 
+
+		//Check email
+		if( isset($email)){
+			$email_arra = explode('@', $email);
+			$insta_mail = end($email_arra);
+		}
+		
+
+
 		if ( empty($name)){
 			$err['name'] = "<p style=\" color: red;\"> * Required</p>"; 
 		}
@@ -43,7 +52,10 @@
 
 			$msg = "<p class=\" alert alert-danger\">All feilds are required!!! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 
-		}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+		}else if( $insta_mail != 'albiak47.com'){
+			$msg = "<p class=\" alert alert-info\">You should have a albiak47.com email to regiter!  <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+		}
+		else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
 			$msg = "<p class=\" alert alert-warning\">Invalid email address! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}else{
 			$msg = "<p class=\"alert alert-success\"> Data stable <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
