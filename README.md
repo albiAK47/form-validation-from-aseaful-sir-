@@ -1,7 +1,7 @@
 # form-validation-from-aseaful-sir
 
 
-<img src='pp.png'>
+<img style="tezt-alien:center;" src='pp.png'>
 
 
 <?php 
